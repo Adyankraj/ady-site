@@ -1,0 +1,761 @@
+/* Ady Ankraj : styles de la page (une seule page). */
+/* Polices hébergées sur le site (pas de Google Fonts : rien n'est envoyé à Google). Licence OFL dans fonts/. */
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("../../fonts/cormorant-garamond-500.woff") format("woff");
+}
+@font-face {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../../fonts/manrope-400.woff") format("woff");
+}
+@font-face {
+  font-family: "Manrope";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("../../fonts/manrope-500.woff") format("woff");
+}
+@font-face {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("../../fonts/manrope-600.woff") format("woff");
+}
+/* Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+}
+[hidden] {
+  display: none !important;
+}
+/* Layout : une colonne centrée (comme la maquette), posée sur un fond animé en clair-obscur. Look sombre assumé. */
+:root {
+  --ground: #382a21; /* brun de la maquette */
+  --deep: #2a1b12; /* brun très foncé, texte du bouton */
+  --cream: #efe4d2; /* texte principal */
+  --cream-2: #d9cbb6; /* texte secondaire */
+  --label: #b89b7a; /* libellés */
+  --line: #6b5442; /* bordures */
+  --rule: #4a3628; /* filet du pied de page */
+  --hint: #8c7562; /* placeholders */
+  --well: rgba(42, 27, 18, 0.55);
+  --tile: #33231a;
+  --sun: #f5b82e; /* focus uniquement */
+  --error: #f3b08c;
+  --f-display: "Cormorant Garamond", "Garamond", "Times New Roman", serif;
+  --f-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: #1e140e;
+  color: var(--cream);
+  font-family: var(--f-body);
+  font-size: 15px;
+  line-height: 1.6;
+}
+#bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+  background: #060403;
+}
+#orbit {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+header {
+  padding-block: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+header img {
+  height: 140px;
+  width: auto;
+  display: block;
+  filter: blur(0);
+}
+.word {
+  font-size: 15px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-block: 40px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+}
+h1 {
+  margin: 0;
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 106px;
+  line-height: 1;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.65);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.lede {
+  margin: 0;
+  max-width: 420px;
+  font-size: 15px;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: #ae9e86;
+}
+form {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 4px;
+}
+main {
+  justify-content: center;
+}
+input[type="email"],
+input[type="tel"],
+select {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 0 2px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cream);
+  font-family: var(--f-body);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+input::placeholder {
+  color: var(--hint);
+}
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--sun);
+}
+.phone {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+}
+.phone:focus-within {
+  border-color: var(--sun);
+}
+.phone select,
+.phone input[type="tel"] {
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+.phone select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: auto;
+  flex: none;
+  padding: 0 14px;
+  border-right: 1px solid var(--line);
+  text-align-last: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--cream-2);
+}
+.phone select option {
+  background: var(--ground);
+  color: var(--cream);
+}
+.phone select {
+  padding: 0 14px 0 2px;
+  text-align-last: left;
+  margin-block: 10px;
+  height: auto;
+}
+.phone input[type="tel"] {
+  flex: 1;
+  min-width: 0;
+  padding: 0 14px;
+}
+.check {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--cream-2);
+  text-align: left;
+  cursor: pointer;
+}
+.check input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--cream);
+  flex-shrink: 0;
+}
+.err {
+  margin: 0;
+  min-height: 1.2em;
+  font-size: 13px;
+  color: var(--error);
+}
+button {
+  font-family: var(--f-body);
+  cursor: pointer;
+}
+.cta {
+  height: 58px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.16s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-top: 10px;
+  border: 1px solid var(--cream-2);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .cta:hover {
+    background: var(--cream);
+    color: var(--deep);
+  }
+}
+.cta:active {
+  transform: scale(0.98);
+  transition-duration: 0.1s;
+}
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+.cta,
+.lang button,
+.link {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+button:focus-visible,
+a:focus-visible,
+.check input:focus-visible {
+  outline: 2px solid var(--sun);
+  outline-offset: 3px;
+}
+.link {
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--label);
+  font-size: 13px;
+  text-decoration: underline;
+}
+.demo {
+  margin: 0;
+  font-size: 12px;
+  color: var(--hint);
+}
+footer {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-block: 24px 32px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--label);
+  text-align: center;
+}
+footer nav {
+  display: flex;
+  gap: 24px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+footer a {
+  color: var(--cream);
+  text-decoration: none;
+  padding: 12px 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  footer a:hover {
+    color: #ffffff;
+  }
+}
+/* Entrée : la signature naît au centre, fondue dans la lueur, puis monte à sa place ; le reste apparaît ensuite */
+header {
+  position: relative;
+  z-index: 3;
+}
+.intro header img {
+  animation: arrive 1.4s cubic-bezier(0.65, 0, 0.35, 1) 0.05s both;
+}
+.intro header .word,
+.intro main,
+.intro footer,
+.intro .lang {
+  animation: fadein 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.9s both;
+}
+@keyframes arrive {
+  0% {
+    opacity: 0;
+    filter: blur(18px);
+    transform: translate(var(--dx, 0), var(--dy, 0)) scale(1.7);
+  }
+  40% {
+    opacity: 0.5;
+    filter: blur(5px);
+    transform: translate(var(--dx, 0), var(--dy, 0)) scale(1.58);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* la signature flotte, comme en apesanteur */
+.intro header {
+  animation: float 8s ease-in-out 1.6s infinite;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.fine {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--cream-2);
+  text-wrap: balance;
+}
+.lang {
+  position: absolute;
+  top: 16px;
+  right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  z-index: 2;
+}
+.lang button {
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--label);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+.lang button[aria-pressed="true"] {
+  background: var(--cream);
+  color: var(--deep);
+}
+@media (max-width: 520px) {
+  header {
+    padding-block: 28px 0;
+  }
+  header img {
+    height: 104px;
+  }
+  .word {
+    font-size: 13px;
+  }
+  main {
+    padding-block: 28px 40px;
+    gap: 24px;
+  }
+  h1 {
+    font-size: 60px;
+    line-height: 1.02;
+  }
+  .lede {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    transition: none;
+  }
+}
+/* ===== Invitation : capsule en verre fumé + bouton rond, sceau à la confirmation ===== */
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.invite {
+  max-width: 460px;
+  gap: 14px;
+  align-items: center;
+}
+.invite__kicker {
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--f-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+.capsule {
+  position: relative;
+  width: 100%;
+  height: 64px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 6px 6px 26px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 240, 220, 0.07),
+      rgba(255, 240, 220, 0.02)
+    ),
+    rgba(26, 17, 11, 0.55);
+  border: 1px solid rgba(239, 228, 210, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 245, 230, 0.08),
+    0 18px 50px -24px rgba(0, 0, 0, 0.9);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.capsule:focus-within {
+  border-color: rgba(245, 184, 46, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 245, 230, 0.1),
+    0 0 0 4px rgba(245, 184, 46, 0.08),
+    0 18px 60px -20px rgba(245, 184, 46, 0.25);
+}
+.capsule input,
+.capsule select {
+  height: 100%;
+  border: 0 !important;
+  background: transparent;
+  color: var(--cream);
+  font-family: var(--f-body);
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  padding: 0;
+}
+.capsule input {
+  flex: 1;
+  min-width: 0;
+  outline: none;
+}
+.capsule input::placeholder {
+  color: #9c8670;
+  font-style: normal;
+}
+.orb {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 0;
+  display: grid;
+  place-items: center;
+  background: var(--cream);
+  color: var(--deep);
+  cursor: pointer;
+  box-shadow: 0 6px 20px -8px rgba(245, 184, 46, 0.55);
+  transition:
+    transform 0.16s cubic-bezier(0.23, 1, 0.32, 1),
+    background 0.25s ease;
+}
+.orb svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .orb:hover {
+    background: #fff6e6;
+  }
+  .orb:hover svg {
+    transform: translateX(3px);
+  }
+}
+.orb:active {
+  transform: scale(0.94);
+}
+.orb.is-busy svg {
+  animation: orb-pulse 1s ease-in-out infinite;
+}
+@keyframes orb-pulse {
+  50% {
+    transform: translateX(4px);
+    opacity: 0.5;
+  }
+}
+.capsule--sm {
+  height: 54px;
+  padding: 4px 18px;
+}
+.capsule--sm select {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  padding-right: 14px;
+  margin-right: 6px;
+  border-right: 1px solid rgba(239, 228, 210, 0.2) !important;
+  height: 60%;
+  color: var(--cream-2);
+  font-size: 14px;
+  cursor: pointer;
+}
+.capsule--sm select option {
+  background: var(--ground);
+  color: var(--cream);
+}
+.sms-toggle {
+  border: 0;
+  background: none;
+  color: var(--label);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  min-height: 44px;
+  padding: 0 6px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.sms-toggle span:first-child {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.sms-toggle[aria-expanded="true"] span:first-child {
+  transform: rotate(45deg);
+}
+@media (hover: hover) and (pointer: fine) {
+  .sms-toggle:hover {
+    color: var(--cream);
+  }
+}
+.sms {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 0.25s ease,
+    margin 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-top: -14px;
+}
+.sms.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 0;
+}
+.sms__in {
+  overflow: hidden;
+  min-height: 0;
+  padding: 2px;
+}
+.invite .err {
+  text-align: center;
+}
+.invite .err:empty {
+  display: none;
+}
+.invite .fine {
+  max-width: 400px;
+  font-size: 12px;
+  color: #9c8670;
+}
+/* confirmation : la capsule se transforme en « Vous serez prévenu·e », qui flotte très légèrement */
+.capsule__done {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  font-family: var(--f-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0;
+  white-space: nowrap;
+  transform: translateY(6px);
+}
+.capsule__done span {
+  display: block;
+  letter-spacing: 0.34em;
+}
+.capsule input,
+.orb {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.capsule {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.8s ease,
+    width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.invite__kicker,
+.sms-toggle,
+.sms,
+.invite .fine {
+  transition: opacity 0.4s ease;
+}
+.invite.is-sent .invite__kicker,
+.invite.is-sent .sms-toggle,
+.invite.is-sent .sms,
+.invite.is-sent .fine {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.4s ease,
+    visibility 0s 0.4s;
+}
+.invite.is-sent .capsule--main {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.invite.is-sent .capsule--main input,
+.invite.is-sent .orb {
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+}
+.invite.is-sent .capsule__done {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.7s ease 0.35s,
+    transform 0.9s cubic-bezier(0.23, 1, 0.32, 1) 0.35s;
+}
+.invite.is-sent .capsule__done span {
+  animation: float-y 4.5s ease-in-out 1.3s infinite alternate;
+}
+@keyframes float-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .invite.is-sent .capsule__done span {
+    animation: none;
+  }
+  .capsule__done {
+    transform: none;
+  }
+  .sms {
+    transition: none;
+  }
+}
+@media (max-width: 520px) {
+  .capsule {
+    height: 60px;
+    padding-left: 22px;
+  }
+  .orb {
+    width: 48px;
+    height: 48px;
+  }
+}

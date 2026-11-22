@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Ady Ankraj · Original paintings and limited prints</title>
+    <meta
+      name="description"
+      content="Ady Ankraj is a painter. The shop for original paintings and limited prints opens soon: leave your email to be told first."
+    />
+    <link rel="canonical" href="https://adyankraj.com/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ady Ankraj" />
+    <meta property="og:url" content="https://adyankraj.com/" />
+    <meta
+      property="og:title"
+      content="Ady Ankraj · Original paintings and limited prints"
+    />
+    <meta
+      property="og:description"
+      content="Ady Ankraj is a painter. The shop for original paintings and limited prints opens soon: leave your email to be told first."
+    />
+    <meta property="og:image" content="https://adyankraj.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="The handwritten signature ady over a starry brown night sky"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#1E140E" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://adyankraj.com/#ady",
+            "name": "Ady Ankraj",
+            "alternateName": "Ady",
+            "jobTitle": "Painter",
+            "description": "Contemporary painter. Original paintings and limited prints.",
+            "url": "https://adyankraj.com/",
+            "image": "https://adyankraj.com/og-image.jpg",
+            "sameAs": [
+              "https://instagram.com/adyankraj",
+              "https://tiktok.com/@adyankraj"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://adyankraj.com/#site",
+            "name": "Ady Ankraj",
+            "url": "https://adyankraj.com/",
+            "inLanguage": ["en", "fr"],
+            "publisher": { "@id": "https://adyankraj.com/#ady" }
+          }
+        ]
+      }
+    </script>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+    <link
+      rel="preload"
+      href="fonts/cormorant-garamond-500.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/fond.js" defer></script>
+    <script src="assets/js/site.js" defer></script>
+  </head>
+  <body>
+    <canvas id="bg" aria-hidden="true"></canvas>
+    <canvas id="orbit" aria-hidden="true"></canvas>
+
+    <div class="page">
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      </div>
+      <header>
+        <img src="img/signature.png" alt="ady" width="664" height="776" />
+        <div class="word">Ankraj.</div>
+      </header>
+
+      <main>
+        <h1 data-i18n="title">The shop opens soon.</h1>
+        <p class="lede" data-i18n="lede">
+          Original paintings and limited prints. Leave your details and be the
+          first to know when the doors open.
+        </p>
+
+        <form
+          id="form"
+          class="invite"
+          name="ouverture"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          novalidate
+        >
+          <input type="hidden" name="form-name" value="ouverture" />
+          <input type="hidden" name="langue" value="en" />
+          <p hidden>
+            <label>Ne pas remplir <input name="bot-field" /></label>
+          </p>
+          <p class="invite__kicker" data-i18n="invite">Be notified</p>
+          <label class="sr" for="email" data-i18n="email">Email</label>
+          <div class="capsule capsule--main">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@email.com"
+              data-i18n-ph="emailPh"
+              required
+            />
+            <button
+              type="submit"
+              class="orb"
+              data-i18n-aria="cta"
+              aria-label="Be notified"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M5 12h13M13 6l6 6-6 6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <p class="capsule__done" role="status">
+              <span data-i18n="thanks">You'll be notified.</span>
+            </p>
+          </div>
+          <button
+            type="button"
+            class="sms-toggle"
+            id="smsToggle"
+            aria-expanded="false"
+            aria-controls="smsBox"
+          >
+            <span aria-hidden="true">+</span>
+            <span data-i18n="sms">Also by text message</span>
+          </button>
+          <div class="sms" id="smsBox">
+            <div class="sms__in">
+              <label class="sr" for="phone"
+                ><span data-i18n="phone">Phone</span>
+                <span data-i18n="optional">(optional)</span></label
+              >
+              <div class="capsule capsule--sm phone">
+                <select id="cc" name="cc" aria-label="Country code">
+                  <option value="+33">FR +33</option>
+                  <option value="+596">MQ +596</option>
+                  <option value="+590">GP +590</option>
+                  <option value="+594">GF +594</option>
+                  <option value="+262">RE +262</option>
+                  <option value="+32">BE +32</option>
+                  <option value="+41">CH +41</option>
+                  <option value="+1">US/CA +1</option>
+                  <option value="+44">UK +44</option>
+                </select>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel-national"
+                  placeholder="6 00 00 00 00"
+                  tabindex="-1"
+                />
+              </div>
+            </div>
+          </div>
+          <p id="err" class="err" role="alert" aria-live="polite"></p>
+          <p class="fine" data-i18n="consent">
+            By signing up, you agree to receive news from Ady Ankraj about the
+            opening and new works. Unsubscribe anytime.
+          </p>
+        </form>
+      </main>
+
+      <footer>
+        <nav aria-label="Social">
+          <a href="https://instagram.com/adyankraj">Instagram</a>
+          <a href="https://tiktok.com/@adyankraj">TikTok</a>
+        </nav>
+        <span>© 2026 Ady Ankraj · @adyankraj</span>
+        <p class="demo" data-i18n="demo">Preview: nothing is sent yet.</p>
+      </footer>
+    </div>
+  </body>
+</html>
