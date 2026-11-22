@@ -26,10 +26,10 @@ robots.txt, sitemap.xml pour Google
 
 ## Avant d'ouvrir la boutique
 - Ajouter les mentions légales (obligatoires pour un site professionnel en France) une fois le SIRET reçu.
-- Adresse officielle : `https://www.adyankraj.com` (`_redirects` y renvoie l'adresse sans www). DNS chez OVH : A `@` vers 75.2.60.5 et CNAME `www` vers `ady-site.netlify.app`, sans toucher aux réglages e-mail (MX).
+- Adresse officielle : `https://adyankraj.com` (domaine principal dans Netlify, qui renvoie lui-même `www.adyankraj.com` vers elle). DNS chez OVH : A `@` vers 75.2.60.5 et CNAME `www` vers `ady-site.netlify.app`, sans toucher aux réglages e-mail (MX).
 
 ## Versions
 - V1 (19/11/2026) : page unique, tout dans un seul fichier.
 - V2 (22/11/2026) : code rangé (styles, scripts, image et polices séparés), polices hébergées sur le site,
   formulaire relié à Netlify Forms, icônes, robots.txt et sitemap.xml.
-- V3 (22/11/2026) : adresse officielle en www (https://www.adyankraj.com), redirection de l'adresse sans www, mention « tous droits réservés ».
+- V3 (22/11/2026) : domaine adyankraj.com branché dans Netlify (www redirigé vers l'adresse sans www), mention « tous droits réservés ».
